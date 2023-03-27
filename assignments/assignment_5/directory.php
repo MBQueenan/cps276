@@ -20,7 +20,7 @@ class Direct{
                         }              
                         if ($alreadyExists) {                 
                             echo "A directory already exists with that name.";
-                            php_include('../assignment_5/readme.txt')           
+                                   
                         } 
                 }
     if(!empty($dir_name))     
