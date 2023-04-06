@@ -2,6 +2,7 @@
 
 $data = json_decode($_POST['data']);
 
+
 $response = (object)[
     'masterstatus'=>'success',
     'msg'=>$data->name

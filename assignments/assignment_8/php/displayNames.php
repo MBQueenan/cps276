@@ -1,11 +1,15 @@
 <?php
 
-$data = json_decode($_POST['data']);
+$sql="SELECT * FROM names ORDER BY FNAME ASC";
+$res = $conn->query($sql);
+$x = array();
 
-$response = (object)[
-    'masterstatus'=>'success',
-    'msg'=>$data->name
-];
+while($i < count($json)){
+	$list .= '<li>' . $json[$i]->name;
+	
+	$list .= '</ul></li>';
+	$i++;
+}
 
-echo json_encode($response);
+$list .= '</ul>';
 ?>
