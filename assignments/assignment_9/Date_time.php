@@ -31,7 +31,7 @@ class Date_Time
 
         $note = $dtm['note'];
 
-       // $mdt = $dtm['datetime'];
+        $mdt = date('Y-m-d H:i:s', $timestamp);
 
         $sql = "INSERT INTO tbl_notes (date_time,note) VALUES('$timestamp','$note');";
 
@@ -46,9 +46,13 @@ class Date_Time
 
     function getNotes($begin, $end)
     {
-
+        //$begin_date = new DateTime($begin);
+        //$end_date = new DateTime($end);
+        //$begin_formatted = $begin_date->format('Y-m-d H:i:s');
+        //$end_formatted = $end_date->format('Y-m-d H:i:s');  
+        //$sql = "SELECT * FROM tbl_notes WHERE CAST(date_time AS DATE) BETWEEN '$begin_formatted' AND '$end_formatted' ORDER BY date_time;";
+        
         $sql = "SELECT * FROM tbl_notes WHERE CAST(date_time AS DATE) BETWEEN '$begin' AND '$end' ORDER BY date_time;";
-
         $result = $this->conn->query($sql);
 
         $notes = array();
