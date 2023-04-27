@@ -2,8 +2,10 @@
 function kill_session()
 {
     session_start();
-    /* DELETE THE SESSION VALUES*/
+    setcookie("PHPSESSID", "", time() - 3600, "/");
     session_unset();
-    
-    header('Location: index.php');
+     
+   
 }
+header('Location: index.php?page=login');  
+?>

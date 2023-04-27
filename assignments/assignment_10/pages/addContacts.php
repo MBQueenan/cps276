@@ -55,7 +55,7 @@ $elementsArr =
         "errorMessage"=>"<span style='color: red; margin-left: 15px;'>Name cannot be blank and must be a standard name</span>",
         "errorOutput"=>"",
         "type"=>"text",
-        "value"=>"Scott Shaper",
+        "value"=>"SCOTT SHAPER",
         "regex"=>"name"
 	],
     "address"=>
@@ -63,7 +63,7 @@ $elementsArr =
         "errorMessage"=>"<span style='color: red; margin-left: 15px;'>Address cannot be blank and must be a valid address</span>",
         "errorOutput"=>"",
         "type"=>"text",
-        "value"=>"123 Someplace",
+        "value"=>"9999 WCC DRIVE",
         "regex"=>"address"
 	],
     "city"=>
@@ -71,7 +71,7 @@ $elementsArr =
         "errorMessage"=>"<span style='color: red; margin-left: 15px;'>City cannot be blank and must be a valid city</span>",
         "errorOutput"=>"",
         "type"=>"text",
-        "value"=>"Anywhere",
+        "value"=>"COLLEGE",
         "regex"=>"city"
 	],
     "state"=>
@@ -94,7 +94,7 @@ $elementsArr =
         "errorMessage"=>"<span style='color: red; margin-left: 15px;'>Email cannot be blank and must be written as a proper email</span>",
         "errorOutput"=>"",
         "type"=>"text",
-        "value"=>"sshaper@test.com",
+        "value"=>"sshaper@staff.com",
         "regex"=>"email"
 	],
     "dob"=>
@@ -102,7 +102,7 @@ $elementsArr =
         "errorMessage"=>"<span style='color: red; margin-left: 15px;'>Dob cannot be blank, must be a valid date, and be formatted as mm/dd/yyyy</span>",
         "errorOutput"=>"",
         "type"=>"text",
-        "value"=>"12/25/1999",
+        "value"=>"04/24/1991",
         "regex"=>"dob"
 	],
     "contacts"=>
@@ -129,7 +129,6 @@ function addData($post)
     global $contacts; 
     $contacts ="No contact options selected";
     /* IF EVERYTHING WORKS ADD THE DATA HERE TO THE DATABASE HERE USING THE $_POST SUPER GLOBAL ARRAY */
-    //print_r($_POST);
     require_once('classes/Pdo_methods.php');
 
     $pdo = new PdoMethods();
@@ -192,9 +191,7 @@ function getForm($acknowledgement, $elementsArr)
 
     /* THIS IS A HEREDOC STRING WHICH CREATES THE FORM AND ADD THE APPROPRIATE VALUES AND ERROR MESSAGES */
     $form = <<<HTML
-        <h1>
-            Add Contact
-        </h1>
+        
         <p>$acknowledgement</p>
         <form method="post" action="index.php?page=addContact">
             <div class="form-group">

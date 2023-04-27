@@ -52,7 +52,7 @@ function init()
         $msg="";
     }
     
-    $output = "<h1>Delete Contact(s)</h1><p>$msg</p>";
+    $output = "<p>$msg</p>";
     
     $pdo = new PdoMethods();
 
@@ -61,7 +61,7 @@ function init()
 
     $records = $pdo->selectNotBinded($sql);
 
-    if(count($records) === 0)
+    if(count($records) == 0)
     {
         $output .= "<p>There are no records to display</p>";
         return [$output,""];

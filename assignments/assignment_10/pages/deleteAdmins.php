@@ -52,7 +52,7 @@ function init()
         $msg="";
     }
     
-    $output = "<h1>Delete Admin(s)</h1><p>$msg</p>";
+    $output = "<p>$msg</p>";
     
     $pdo = new PdoMethods();
 

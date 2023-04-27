@@ -15,11 +15,12 @@ require_once('pages/routes.php');
 
 <body class="container">
     <?php
-    //echo $nav;
-     
+    echo $nav;
+        
     echo $result[0];
 
     echo $result[1];
+
     ?>
 </body>
 

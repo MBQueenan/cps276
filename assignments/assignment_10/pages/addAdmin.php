@@ -78,7 +78,7 @@ $elementsArr =
     [
         "type"=>"select",
         "options"=>["staff"=>"Staff", "admin"=>"Admin"],
-        "selected"=>"staff",
+        "selected"=>"admin",
         "regex"=>"name"
     ]
 ];
@@ -117,12 +117,13 @@ function addData($post)
     {
         require_once('classes/Pdo_methods.php');
         $pdo = new PdoMethods();
+        $password = password_hash($post['password'], PASSWORD_DEFAULT);
         $sql = "INSERT INTO admins (name, email, password, status) VALUES (:name, :email, :password, :status)";
         $bindings = 
         [
             [':name',$post['name'],'str'],
             [':email',$post['email'],'str'],
-            [':password',password_hash($post['password'], PASSWORD_DEFAULT),'str'],
+            [':password', $password,'str'],
             [':status',$post['status'],'str']
         ];
         $result = $pdo->otherBinded($sql, $bindings);
@@ -148,9 +149,7 @@ function getForm($acknowledgement, $elementsArr)
 
     /* THIS IS A HEREDOC STRING WHICH CREATES THE FORM AND ADD THE APPROPRIATE VALUES AND ERROR MESSAGES */
     $form = <<<HTML
-        <h1>
-            Add Admin
-        </h1>
+       
         <p>$acknowledgement</p>
         <form method="post" action="index.php?page=addAdmin">
             <div class="form-group">
